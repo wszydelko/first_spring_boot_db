@@ -21,6 +21,9 @@ public class Task {
     @Column
     private Boolean done;
 
+    @ManyToOne
+    private Project project;
+
     //Gettery, Settery itp.
     public Long getId() {
         return id;

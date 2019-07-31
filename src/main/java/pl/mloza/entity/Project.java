@@ -2,6 +2,7 @@ package pl.mloza.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -11,6 +12,9 @@ public class Project {
 
     @Column
     private String name;
+
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
 
 
     public void setId(int id) {
