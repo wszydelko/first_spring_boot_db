@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.mloza.entity.Project;
+import pl.mloza.repozytory.ProjectRepository;
 import pl.mloza.repozytory.TaskRepository;
 import pl.mloza.entity.Task;
 
@@ -17,7 +18,8 @@ public class PageController {
     @Autowired
     public TaskRepository taskRepository;
 
-    //public Project project;
+    @Autowired
+    public ProjectRepository projectRepository;
 
     @RequestMapping("/db")
     @ResponseBody
@@ -71,7 +73,12 @@ public class PageController {
     public String projectsAndTasks(){
         StringBuffer response = new StringBuffer();
 
-        //for(Task task: ){}
+        for(Project project: projectRepository.findAll()){
+            response.append(project).append("<br>");
+            for(Task task: project.getTasks()){
+                response.append(task).append("<br>");
+            }
+        }
         return response.toString();
     }
 
