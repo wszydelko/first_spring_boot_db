@@ -13,6 +13,14 @@ public class Project {
     @Column
     private String name;
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     @OneToMany(mappedBy = "project")
     private List<Task> tasks;
 
