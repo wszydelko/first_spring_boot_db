@@ -1,9 +1,11 @@
 package pl.mloza.controllers;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.mloza.entity.Project;
 import pl.mloza.repozytory.TaskRepository;
 import pl.mloza.entity.Task;
 
@@ -14,6 +16,8 @@ public class PageController {
 
     @Autowired
     public TaskRepository taskRepository;
+
+    //public Project project;
 
     @RequestMapping("/db")
     @ResponseBody
@@ -59,6 +63,15 @@ public class PageController {
         }
 
 
+        return response.toString();
+    }
+
+    @RequestMapping("/project-tasks")
+    @ResponseBody
+    public String projectsAndTasks(){
+        StringBuffer response = new StringBuffer();
+
+        //for(Task task: ){}
         return response.toString();
     }
 
