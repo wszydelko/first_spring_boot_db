@@ -89,6 +89,14 @@ public class Task {
         this.done = done;
         return this;
     }
+    //Sters and geters for Project
+    public Project getProject() {
+        return project;
+    }
+    public Task withProject(final Project project){
+        this.project=project;
+        return this;
+    }
 
     @Override
     public String toString() {

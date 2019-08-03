@@ -1,6 +1,5 @@
 package pl.mloza.controllers;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +8,6 @@ import pl.mloza.entity.Project;
 import pl.mloza.repozytory.ProjectRepository;
 import pl.mloza.repozytory.TaskRepository;
 import pl.mloza.entity.Task;
-
-import java.util.List;
 
 @Controller
 public class PageController {
@@ -67,7 +64,7 @@ public class PageController {
 
         return response.toString();
     }
-
+    //Kontroler prezentujący Projekty i powiązane z nim zadania
     @RequestMapping("/project-tasks")
     @ResponseBody
     public String projectsAndTasks(){
@@ -80,6 +77,22 @@ public class PageController {
             }
         }
         return response.toString();
+    }
+
+    //Dodanie zadanie do wybranego projektu
+    //W tym przypadku ID=1
+    @RequestMapping("/add")
+    @ResponseBody
+    public String addTask(){
+        Project project = projectRepository.findOne(1);
+
+        Task task = new Task()
+                .withBudget(20.00)
+                .withName("addtest")
+                .withDescription("Add test")
+                .withDone(false);
+
+        return null;
     }
 
     @RequestMapping("/")
