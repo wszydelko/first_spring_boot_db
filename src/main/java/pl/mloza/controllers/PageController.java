@@ -76,7 +76,7 @@ public class PageController {
         for(Project project: projectRepository.findAll()){
             response.append(project).append("<br>");
             for(Task task: project.getTasks()){
-                response.append(task).append("<br>");
+                response.append(" - ").append(task).append("<br>");
             }
         }
         return response.toString();

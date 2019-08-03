@@ -98,6 +98,7 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", budget=" + budget +
                 ", done=" + done +
+                //", project=" + project +
                 '}';
     }
 }
