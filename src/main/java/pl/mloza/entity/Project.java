@@ -24,6 +24,9 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private List<Task> tasks;
 
+    @OneToOne(mappedBy = "project")
+    private ProjectDetails projectDetails;
+
 
     public void setId(int id) {
         this.id = id;

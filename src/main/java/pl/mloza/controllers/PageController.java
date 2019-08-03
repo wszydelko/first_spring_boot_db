@@ -125,6 +125,15 @@ public class PageController {
         return projectsAndTasks();
     }
 
+    // Dodanie opisu do tabeli "ProjectDetails"
+    @RequestMapping("/add-desc")
+    @ResponseBody
+    public String addDescription(){
+        //Pobranie tabeli projektu
+        Project project = projectRepository.findOne(1);
+
+        return null;
+    }
 
     @RequestMapping("/")
     @ResponseBody
