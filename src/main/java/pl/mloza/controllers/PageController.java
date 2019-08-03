@@ -81,19 +81,31 @@ public class PageController {
 
     //Dodanie zadanie do wybranego projektu
     //W tym przypadku ID=1
-    @RequestMapping("/add")
+    @RequestMapping("/add-task")
     @ResponseBody
     public String addTask(){
         Project project = projectRepository.findOne(1);
 
+        //Założenie nowego obiektu
         Task task = new Task()
                 .withBudget(20.00)
                 .withName("addtest")
                 .withDescription("Add test")
-                .withDone(false);
+                .withDone(false)
+                .withProject(project);
 
-        return null;
+        //Dodanie zadania do projektu
+        project.getTasks().add(task);
+        //Zapisanie danych do bazy danych
+        taskRepository.save(task);
+        //Zwracana jest nazwa kontrolera, który będzie uruchomiony nastepnie
+        return projectsAndTasks();
+        //return "<p>Test</p>";
     }
+
+    //Kasowanie zadania z projkektu
+
+
 
     @RequestMapping("/")
     @ResponseBody
