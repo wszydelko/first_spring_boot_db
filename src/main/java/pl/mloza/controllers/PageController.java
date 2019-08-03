@@ -104,7 +104,26 @@ public class PageController {
     }
 
     //Kasowanie zadania z projkektu
+    @RequestMapping("/delete-task")
+    @ResponseBody
+    public String deleteTask(){
+        //Zadanie do usunięcia
+        Task taskToDel = taskRepository.findOne(1L);
 
+        if (taskToDel != null) { //warunek zabezpiecza przed ponownym usunięciem
+            System.out.println("Blad");
+            //Powiązany z zadaniem projekt
+            Project project = taskToDel.getProject();
+
+            //Usunięcie zadania z listy projektu
+            project.getTasks().remove(taskToDel);
+
+            //zapisanie zmodyfikowanie projektu do bazy
+            taskRepository.delete(taskToDel);
+        }
+
+        return projectsAndTasks();
+    }
 
 
     @RequestMapping("/")
