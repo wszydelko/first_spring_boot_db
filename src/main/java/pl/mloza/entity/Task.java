@@ -21,6 +21,7 @@ public class Task {
     @Column
     private Boolean done;
 
+    //Klucz obcy reprezentujący "projekt"
     @ManyToOne
     private Project project;
 

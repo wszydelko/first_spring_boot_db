@@ -12,6 +12,7 @@ public class ProjectDetails {
     private String description;
 
     //Powiązanie do tabeli Project
+    //Tworzenie klucza obcego do tabeli project
     @OneToOne
     Project project;
 
@@ -29,6 +30,14 @@ public class ProjectDetails {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     @Override

@@ -44,12 +44,20 @@ public class Project {
         return name;
     }
 
+    public ProjectDetails getProjectDetails() {
+        return projectDetails;
+    }
+
+    public void setProjectDetails(ProjectDetails projectDetails) {
+        this.projectDetails = projectDetails;
+    }
 
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", description=" + projectDetails +
                 '}';
     }
 }

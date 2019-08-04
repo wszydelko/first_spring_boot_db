@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.mloza.entity.Project;
+import pl.mloza.entity.ProjectDetails;
+import pl.mloza.repozytory.ProjectDetailsRepository;
 import pl.mloza.repozytory.ProjectRepository;
 import pl.mloza.repozytory.TaskRepository;
 import pl.mloza.entity.Task;
@@ -17,6 +19,9 @@ public class PageController {
 
     @Autowired
     public ProjectRepository projectRepository;
+
+    @Autowired
+    public ProjectDetailsRepository projectDetailsRepository;
 
     @RequestMapping("/db")
     @ResponseBody
@@ -132,6 +137,21 @@ public class PageController {
         //Pobranie tabeli projektu
         Project project = projectRepository.findOne(1);
 
+
+        //Dodanie obiektu Description
+        ProjectDetails projectDetails = new ProjectDetails();
+        projectDetails.setDescription("Test");
+        projectDetails.setProject(project);
+
+        projectDetailsRepository.save(projectDetails);
+
+        return projectsAndTasks();
+    }
+
+    //Edit Project Description
+    @RequestMapping("/edit-pro-desc")
+    @ResponseBody
+    public String editProjectDescription(){
         return null;
     }
 
