@@ -152,7 +152,14 @@ public class PageController {
     @RequestMapping("/edit-pro-desc")
     @ResponseBody
     public String editProjectDescription(){
-        return null;
+        //Pobrannie projektu do edycji
+        Project projectToEdit = projectRepository.findOne(1);
+        //Pobranie Project details
+        ProjectDetails projectDetails = projectToEdit.getProjectDetails();
+        projectDetails.setDescription("Nowy opis");
+
+        projectDetailsRepository.save(projectDetails);
+        return projectsAndTasks();
     }
 
     @RequestMapping("/")
