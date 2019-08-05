@@ -1,9 +1,7 @@
 package pl.mloza.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Tag {
@@ -14,6 +12,11 @@ public class Tag {
 
     @Column
     private String name;
+
+    //Powiązanie z tabelą project
+    //Definicja klucza obcego
+    @ManyToMany
+    private List<Project> projects;
 
     //Geters and setters
     public int getId() {

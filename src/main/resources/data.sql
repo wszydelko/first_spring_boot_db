@@ -1,3 +1,4 @@
+/*
 INSERT INTO project(name) VALUES('Projekt 1');
 INSERT INTO project(name) VALUES('Projekt 2');
 
@@ -12,3 +13,4 @@ Insert into task(name, description, budget, done, project_id) values('Task 3', '
 
 INSERT INTO project_Details(description, project_id) VALUES('init test', SELECT id FROM project WHERE name = 'Projekt 1');
 INSERT INTO project_Details(description, project_id) VALUES('init test', SELECT id FROM project WHERE name = 'Projekt 2');
+*/

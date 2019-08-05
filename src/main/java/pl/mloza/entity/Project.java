@@ -27,6 +27,11 @@ public class Project {
     @OneToOne(mappedBy = "project")
     private ProjectDetails projectDetails;
 
+    //Powiązanie z tagami
+    //definicja contrain
+    @ManyToMany(mappedBy = "projects")
+    private List<Tag> tag;
+
 
     public void setId(int id) {
         this.id = id;
