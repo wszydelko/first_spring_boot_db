@@ -57,6 +57,14 @@ public class Project {
         this.projectDetails = projectDetails;
     }
 
+    public List<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(List<Tag> tag) {
+        this.tag = tag;
+    }
+
     @Override
     public String toString() {
         return "Project{" +

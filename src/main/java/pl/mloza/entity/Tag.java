@@ -34,4 +34,12 @@ public class Tag {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 }

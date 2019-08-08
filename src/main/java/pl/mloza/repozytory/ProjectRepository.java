@@ -3,4 +3,8 @@ package pl.mloza.repozytory;
 import org.springframework.data.repository.CrudRepository;
 import pl.mloza.entity.Project;
 
-public interface ProjectRepository extends CrudRepository<Project,Integer> { }
+import java.util.List;
+
+public interface ProjectRepository extends CrudRepository<Project,Integer> {
+    public Project findById(int id);
+}
